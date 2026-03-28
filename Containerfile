@@ -21,7 +21,8 @@ RUN curl --silent --show-error --location --output gcc.tar.gz \
         --disable-multilib \
         --disable-bootstrap \
         --enable-languages=c,c++ \
-    && make -j$(nproc) all-target-libgcc all-target-libstdc++-v3 \
+        --enable-libatomic \
+    && make -j$(nproc) all-target-libgcc all-target-libstdc++-v3 all-target-libatomic \
     && mkdir -p /base/usr/lib && ln -s lib /base/usr/lib64 \
     && make install-target-libgcc DESTDIR=/base \
     && make install-target-libstdc++-v3 DESTDIR=/base \
