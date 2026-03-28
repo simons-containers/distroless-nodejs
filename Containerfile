@@ -24,7 +24,8 @@ RUN curl --silent --show-error --location --output gcc.tar.gz \
     && make -j$(nproc) all-target-libgcc all-target-libstdc++-v3 \
     && mkdir -p /base/usr/lib && ln -s lib /base/usr/lib64 \
     && make install-target-libgcc DESTDIR=/base \
-    && make install-target-libstdc++-v3 DESTDIR=/base
+    && make install-target-libstdc++-v3 DESTDIR=/base \
+    && make install-target-libatomic DESTDIR=/base
 
 WORKDIR /extract/nodejs
 RUN curl --silent --show-error --location --output nodejs.tar.xz \
@@ -51,8 +52,10 @@ ARG GCC_VERSION
 ARG NODEJS_VERSION
 
 COPY --from=builder /base/usr/ /usr/
-ENV COREPACK_ENABLE_DOWNLOAD_PROMPT=0
+ENV COREPACK_ENABLE_DOWNLOAD_PROMPT=0 
+ENV PATH=/usr/local/bin:/usr/local/sbin:/usr/bin/:/usr/sbin:/bin:/sbin
 RUN ["/bin/node", "/bin/corepack", "enable"]
+
 WORKDIR /usr/bin
 ENTRYPOINT ["/usr/bin/node"]
 
