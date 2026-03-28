@@ -53,9 +53,6 @@ ARG GCC_VERSION
 ARG NODEJS_VERSION
 
 COPY --from=builder /base/usr/ /usr/
-ENV COREPACK_ENABLE_DOWNLOAD_PROMPT=0 
-ENV PATH=/usr/local/bin:/usr/local/sbin:/usr/bin/:/usr/sbin:/bin:/sbin
-RUN ["/bin/node", "/bin/corepack", "enable"]
 
 WORKDIR /usr/bin
 ENTRYPOINT ["/usr/bin/node"]
