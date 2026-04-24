@@ -23,7 +23,7 @@ jobs:
           timeout_minutes: 10
           command: |
             set -uo pipefail
-            GCC=$(curl -s https://ftp.gnu.org/gnu/gcc/ \
+            GCC=$(curl -sf https://ftp.gnu.org/gnu/gcc/ \
               | grep -o 'gcc-[0-9]\+\.[0-9]\+\.[0-9]\+/' \
               | sed 's#gcc-##; s#/##' \
               | sort -V | tail -n 1)    
