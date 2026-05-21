@@ -6,7 +6,7 @@ ARG NODEJS_VERSION
 ARG GCC_SOURCE=https://mirrors.ocf.berkeley.edu/gnu/gcc/gcc-${GCC_VERSION}/gcc-${GCC_VERSION}.tar.gz
 ARG NODEJS_RELEASE=https://nodejs.org/dist/v${NODEJS_VERSION}/node-v${NODEJS_VERSION}-linux-x64.tar.xz
 
-RUN pacman -Sy --noconfirm wget >/dev/null
+RUN pacman -Syu --noconfirm wget >/dev/null
 
 WORKDIR /build/gcc
 RUN curl --silent --show-error --location --output gcc.tar.gz \
