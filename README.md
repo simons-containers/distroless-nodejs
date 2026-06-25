@@ -1,3 +1,7 @@
+![Latest](https://ghcr-badge.egpl.dev/simons-containers/distroless-nodejs/latest_tag?ignore=latest,sha256*&label=latest)  
+![Size](https://ghcr-badge.egpl.dev/simons-containers/distroless-nodejs/size?tag=latest)  
+![Tags](https://ghcr-badge.egpl.dev/simons-containers/distroless-nodejs/tags?ignore=latest,sha256*)  
+
 # Distroless NodeJS container
 
 Bare-bones distroless NodeJS container image.
