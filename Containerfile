@@ -3,8 +3,8 @@ FROM archlinux:base-devel-20260308.0.497099 AS builder
 ARG GCC_VERSION
 ARG NODEJS_VERSION
 
-ARG GCC_SOURCE=https://mirrors.ocf.berkeley.edu/gnu/gcc/gcc-${GCC_VERSION}/gcc-${GCC_VERSION}.tar.gz
-ARG NODEJS_RELEASE=https://nodejs.org/dist/v${NODEJS_VERSION}/node-v${NODEJS_VERSION}-linux-x64.tar.xz
+ARG GCC_SOURCE
+ARG NODEJS_RELEASE
 
 RUN pacman -Syu --noconfirm wget >/dev/null
 
