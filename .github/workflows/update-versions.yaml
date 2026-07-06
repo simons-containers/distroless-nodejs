@@ -30,10 +30,18 @@ jobs:
             NODEJS=$(git ls-remote --tags https://github.com/nodejs/node \
               | awk -F/ '!/[\^]|head/ {gsub("v", ""); print $3}' \
               | sort -V | tail -1)
+
+             : ${GCC:?} ${NODEJS:?}
   
-            yq -i ".gcc= \"$GCC\"" versions.yaml
-            yq -i ".nodejs= \"$NODEJS\"" versions.yaml
-            git diff versions.yaml
+            jq \
+              --arg gcc "$GCC" \
+              --arg nodejs  "$NODEJS" \
+              '
+                .gcc.version = $gcc |
+                .nodejs.version  = $nodejs
+              ' sources.json > tmp.json && mv tmp.json sources.json
+
+            git diff sources.json
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v8
