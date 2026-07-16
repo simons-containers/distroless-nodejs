@@ -55,7 +55,7 @@ ARG NODEJS_VERSION
 COPY --from=builder /base/usr/ /usr/
 
 WORKDIR /usr/bin
-ENTRYPOINT ["/usr/bin/node"]
+ENTRYPOINT ["/usr/bin/node", "--use-system-ca"]
 
 LABEL org.opencontainers.image.title="distroless nodejs"
 LABEL org.opencontainers.image.description="distroless nodejs"
