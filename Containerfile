@@ -47,7 +47,7 @@ RUN find /base/usr/lib -type f \( -name '*.so' -o -name '*.so.*' \) \
         /base/usr/share/man \
         /base/usr/bin/openssl
        
-FROM ghcr.io/simons-containers/distroless-glibc:2.43
+FROM ghcr.io/simons-containers/distroless-glibc:2.44
 
 ARG GCC_VERSION
 ARG NODEJS_VERSION
