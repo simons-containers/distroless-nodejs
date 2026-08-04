@@ -1,6 +1,6 @@
 {
   "nodejs": {
-    "version": "26.5.0",
+    "version": "26.6.0",
     "purl": "pkg:generic/nodejs",
     "release": {
       "url_pattern": "https://nodejs.org/dist/v{version}/node-v{version}-linux-x64.tar.xz"
